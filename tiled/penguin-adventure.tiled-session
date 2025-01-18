@@ -1,0 +1,48 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "Level_One.tmx",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "Level_One.tmx": {
+            "scale": 1,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 158.5,
+                "y": 327
+            }
+        },
+        "Level_One.tmx#tilemap_packed": {
+            "scaleInDock": 1
+        },
+        "tilemap_packed.tsx": {
+            "scaleInDock": 2,
+            "scaleInEditor": 4
+        }
+    },
+    "last.exportedFilePath": "C:/Users/pedro/Documents/Development/penguin_adventure/penguin_adventure/assets/tiles",
+    "last.imagePath": "C:/Users/pedro/Documents/Development/penguin_adventure/penguin_adventure/assets/images",
+    "map.height": 40,
+    "map.lastUsedExportFilter": "Tiled map files (*.tmx *.xml)",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 20,
+    "openFiles": [
+        "tilemap_packed.tsx",
+        "Level_One.tmx"
+    ],
+    "project": "penguin-adventure.tiled-project",
+    "recentFiles": [
+        "tilemap_packed.tsx",
+        "Level_One.tmx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}
