@@ -13,7 +13,8 @@ import 'package:penguin_adventure/game/routes/mainMenu.dart';
 import 'package:penguin_adventure/game/routes/pauseMenu.dart';
 import 'package:penguin_adventure/game/routes/settings.dart';
 
-class PenguinAdventur extends FlameGame with HasKeyboardHandlerComponents {
+class PenguinAdventur extends FlameGame
+    with HasKeyboardHandlerComponents, HasCollisionDetection {
   late final routes = <String, Route>{
     MainMenu.id: OverlayRoute(
       (context, game) => MainMenu(

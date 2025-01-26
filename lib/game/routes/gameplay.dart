@@ -2,11 +2,13 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:flame/components.dart';
+import 'package:flame/sprite.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 import 'package:flutter/src/services/hardware_keyboard.dart';
 import 'package:flutter/src/services/keyboard_key.g.dart';
+import 'package:penguin_adventure/game/actors/snowman.dart';
 import 'package:penguin_adventure/game/input.dart';
-import 'package:penguin_adventure/game/player.dart';
+import 'package:penguin_adventure/game/actors/player.dart';
 
 class Gameplay extends Component with KeyboardHandler, HasGameRef {
   Gameplay(
@@ -36,9 +38,8 @@ class Gameplay extends Component with KeyboardHandler, HasGameRef {
 
     final map = await TiledComponent.load('Level_One.tmx', Vector2.all(16))
       ..debugMode = true;
-    final player = Player(position: Vector2(map.size.x * .5, 32))
-      ..debugMode = false;
-    final world = World(children: [map, input, player]);
+
+    final world = World(children: [map, input]);
     await add(world);
 
     final camera = CameraComponent.withFixedResolution(
@@ -48,7 +49,32 @@ class Gameplay extends Component with KeyboardHandler, HasGameRef {
     );
     await add(camera);
 
-    camera.follow(player);
+    final tiles = game.images.fromCache('../images/tilemap_packed.png');
+    final spriteSheet = SpriteSheet(image: tiles, srcSize: Vector2.all(16));
+
+    final spawnPoint = map.tileMap.getLayer<ObjectGroup>('SpawnPoint');
+    final objects = spawnPoint?.objects;
+
+    if (objects != null) {
+      for (final object in objects) {
+        switch (object.class_) {
+          case 'Player':
+            final player = Player(
+                position: Vector2(object.x, object.y),
+                sprite: spriteSheet.getSprite(5, 10))
+              ..debugMode = false;
+            await world.add(player);
+            camera.follow(player);
+            break;
+          case 'Snowman':
+            final snowman = Snowman(
+                position: Vector2(object.x, object.y),
+                sprite: spriteSheet.getSprite(5, 9));
+            world.add(snowman);
+            break;
+        }
+      }
+    }
 
     return super.onLoad();
   }
