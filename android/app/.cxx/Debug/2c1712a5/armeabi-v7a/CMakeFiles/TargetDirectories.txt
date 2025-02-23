@@ -1,0 +1,2 @@
+/home/pedro/Development/snow_game/android/app/.cxx/Debug/2c1712a5/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+/home/pedro/Development/snow_game/android/app/.cxx/Debug/2c1712a5/armeabi-v7a/CMakeFiles/edit_cache.dir
